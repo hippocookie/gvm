@@ -1,6 +1,7 @@
 package classpath
 
 import (
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
 )
@@ -19,6 +20,7 @@ func newDirEntry(path string) *DirEntry {
 
 func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
 	fileName := filepath.Join(self.absDir, className)
+	fmt.Printf("file:%s\n", fileName)
 	data, err := ioutil.ReadFile(fileName)
 	return data, self, err
 }
