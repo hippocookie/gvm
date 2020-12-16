@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gvm/classfile"
 	"gvm/classpath"
+	"strings"
 )
 
 func main() {
@@ -19,8 +20,7 @@ func main() {
 
 func startJVM(cmd *Cmd) {
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
-	fmt.Printf("classpath:%s Xjre:%s class:%s args:%v\n",
-		cmd.cpOption, cmd.XjreOption, cmd.class, cmd.args)
+	className := strings.Replace(cmd.class, ".", "/", -1)
 	cf := loadClass(className, cp)
 	fmt.Println(cmd.class)
 	printClassInfo(cf)
