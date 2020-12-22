@@ -37,7 +37,7 @@ func (self *OperandStack) PopLong() int64 {
 	low := uint32(self.slots[self.size].num)
 	high := uint32(self.slots[self.size+1].num)
 	return int64(high)<<32 | int64(low)
-}
+}``
 
 func (self *OperandStack) PushDouble(val float64) {
 	bits := math.Float64bits(val)
@@ -57,6 +57,6 @@ func (self *OperandStack) PushRef(ref *Object) {
 func (self *OperandStack) PopRef() *Object {
 	self.size--
 	ref := self.slots[self.size].ref
-	self.slots[self.size] = nil
+	self.slots[self.size].ref = nil
 	return ref
 }
