@@ -32,3 +32,15 @@ func (self *SymRef) resolveClassRef() {
 	}
 	self.class = c
 }
+
+func (self *Class) isAccessableTo(other *Class) bool {
+	return self.IsPublic() || self.getPackageName() == other.getPackageName()
+}
+
+func (self *Class) getPackageName() string {
+	if i := strings.LastIndex(self.name, "/"); i >= 0 {
+		return self.name[:i]
+	}
+	return ""
+}
+
