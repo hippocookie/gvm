@@ -14,3 +14,14 @@ func (self *NEW) Execute(frame *rtda.Frame) {
 	ref := class.NewObject()
 	frame.OperandStack().PushRef(ref)
 }
+
+func (self *Class) NewObject() *Object {
+	return newObject(self)
+}
+
+func newObject(class *Class) *Object {
+	return &Object {
+		class: class,
+		fields: newSlots(class.instanceSlotCount),
+	}
+}
