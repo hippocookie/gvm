@@ -1,17 +1,15 @@
 package main
 
 import "flag"
+import "fmt"
+import "os"
 
 type Cmd struct {
-	helpFlag bool
+	helpFlag    bool
 	versionFlag bool
-	cpOption string
-	class string
-	args []string
-}
-
-func main() {
-	
+	cpOption    string
+	class       string
+	args        []string
 }
 
 func parseCmd() *Cmd {
