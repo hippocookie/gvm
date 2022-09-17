@@ -1,4 +1,4 @@
-package classpath
+package classfile
 
 import "encoding/binary"
 
