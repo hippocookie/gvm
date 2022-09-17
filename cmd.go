@@ -8,7 +8,7 @@ type Cmd struct {
 	helpFlag    bool
 	versionFlag bool
 	cpOption    string
-	XjreOption    string
+	XjreOption  string
 	class       string
 	args        []string
 }
